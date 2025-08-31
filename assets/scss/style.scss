@@ -1,0 +1,550 @@
+@import "./base/base";
+@import "./layout/layout";
+@import "./module/module";
+@import "./theme/theme";
+@import "~rc-slider/assets/index.css";
+
+.nav-link,
+.btn-link {
+  color: rgb(132, 142, 156);
+  font-weight: 500;
+}
+
+.nav-link.active,
+.btn-link.active {
+  color: rgb(240, 185, 11) !important;
+}
+
+th {
+  color: rgb(132, 142, 156) !important;
+}
+
+td {
+  color: rgb(30, 35, 41);
+}
+
+.dark td {
+  color: rgb(183, 189, 198);
+}
+
+.nav-tabs {
+  border-bottom: none !important;
+}
+
+.text-success {
+  color: rgb(14, 203, 129) !important;
+}
+
+.text-danger {
+  color: rgb(246, 70, 93) !important;
+}
+
+.btn-success,
+.btn-success:hover {
+  background-color: rgb(14, 203, 129);
+  border-color: rgb(14, 203, 129);
+}
+
+.btn-danger,
+.btn-danger:hover {
+  background-color: rgb(246, 70, 93);
+  border-color: rgb(246, 70, 93);
+}
+
+.modal-content {
+  background-color: rgb(35, 40, 45);
+}
+
+.btn-primary {
+  background-color: rgb(252, 213, 53);
+  color: rgb(24, 26, 32);
+  border: none;
+}
+
+.btn-secondary {
+  box-sizing: border-box;
+  margin: 0px 5px 0px 0px;
+  min-width: 0px;
+  flex: 1 1 0%;
+  font-size: 12px;
+  line-height: 24px;
+  color: rgb(234, 236, 239);
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 2px;
+  background-color: rgb(71, 77, 87);
+  text-decoration: none;
+  width: 64px;
+  height: 24px;
+  padding: 0px 4px;
+  display: inline-block;
+  border: none;
+}
+
+.dropdown-toggle.nav-link {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+}
+
+.nav-link {
+  color: #eaecef;
+}
+
+.nav-tabs .nav-item,
+.nav-tabs .nav-item.disabled {
+  color: rgb(132, 142, 156);
+}
+
+.btn-check {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+
+body {
+  color: rgb(30, 35, 41);
+  background-color: rgb(255, 255, 255);
+  font-family: IBM Plex Sans, -apple-system, BlinkMacSystemFont, Roboto, Arial,
+    sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+body.dark {
+  color: #eaecef;
+  background-color: #0b0e11;
+}
+
+.dark .order-book,
+.order-book .heading {
+  background: transparent;
+  // color: rgb(234, 236, 239);
+  color: inherit;
+}
+
+.order-book td {
+  border: none !important;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.order-book tbody {
+  height: initial;
+}
+
+.ob-heading tr {
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+.btn-link.disabled,
+.btn-link:disabled {
+  color: inherit;
+  opacity: inherit;
+}
+
+.table td,
+.table th {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+#orders .table {
+  width: 98%;
+  margin: 0 auto;
+}
+
+#orders .table th {
+  padding-top: 0 !important;
+
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+}
+
+#orders .table {
+  margin-top: -4px;
+}
+
+/* Bybit-specific styling updates */
+.container-fluid {
+  background: #0b0e11 !important;
+  padding: 0 !important;
+}
+
+.dark .container-fluid {
+  background: #0b0e11 !important;
+}
+
+/* Chart and layout containers */
+.row {
+  margin: 0 !important;
+  background: #0b0e11;
+}
+
+.dark .row {
+  background: #0b0e11;
+}
+
+/* Navigation and header styling */
+.navbar {
+  background: rgb(16, 16, 20) !important;
+  border-bottom: 1px solid #000000 !important;
+  padding: 8px 16px !important;
+}
+
+.dark .navbar {
+  background: rgb(16, 16, 20) !important;
+  border-bottom: 1px solid #000000 !important;
+}
+
+/* Card and panel styling */
+.card {
+  background: rgb(16, 16, 20) !important;
+  border: 1px solid #000000 !important;
+  border-radius: 2px !important;
+}
+
+.dark .card {
+  background: rgb(16, 16, 20) !important;
+  border: 1px solid #000000 !important;
+}
+
+/* Table styling updates */
+.table {
+  background: rgb(16, 16, 20) !important;
+  color: #eaecef !important;
+  margin-bottom: 0 !important;
+}
+
+.dark .table {
+  background: rgb(16, 16, 20) !important;
+  color: #eaecef !important;
+}
+
+.table th {
+  background: rgb(16, 16, 20) !important;
+  color: #adb1b8 !important;
+  border-color: #2b3139 !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  padding: 8px 12px !important;
+}
+
+.dark .table th {
+  background: rgb(16, 16, 20) !important;
+  color: #adb1b8 !important;
+  border-color: #2b3139 !important;
+}
+
+.table td {
+  background: rgb(16, 16, 20) !important;
+  color: #eaecef !important;
+  border-color: #2b3139 !important;
+  font-size: 12px !important;
+  padding: 8px 12px !important;
+}
+
+.dark .table td {
+  background: rgb(16, 16, 20) !important;
+  color: #eaecef !important;
+  border-color: #2b3139 !important;
+}
+
+/* Button styling */
+.btn {
+  border-radius: 2px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  padding: 6px 12px !important;
+}
+
+.btn-primary {
+  background: #f7a600 !important;
+  border-color: #f7a600 !important;
+  color: #000 !important;
+}
+
+.btn-primary:hover {
+  background: #d9a441 !important;
+  border-color: #d9a441 !important;
+  color: #000 !important;
+}
+
+.btn-success {
+  background: #0ecb81 !important;
+  border-color: #0ecb81 !important;
+  color: #fff !important;
+}
+
+.btn-success:hover {
+  background: #0bb872 !important;
+  border-color: #0bb872 !important;
+  color: #fff !important;
+}
+
+.btn-danger {
+  background: #f6465d !important;
+  border-color: #f6465d !important;
+  color: #fff !important;
+}
+
+.btn-danger:hover {
+  background: #e03e54 !important;
+  border-color: #e03e54 !important;
+  color: #fff !important;
+}
+
+.btn-secondary {
+  background: #2b3139 !important;
+  border-color: #363a45 !important;
+  color: #eaecef !important;
+}
+
+.btn-secondary:hover {
+  background: #363a45 !important;
+  border-color: #474d57 !important;
+  color: #fff !important;
+}
+
+/* Form controls */
+.form-control {
+  background: #2b3139 !important;
+  border: 1px solid #363a45 !important;
+  color: #eaecef !important;
+  border-radius: 2px !important;
+  font-size: 12px !important;
+}
+
+.dark .form-control {
+  background: #2b3139 !important;
+  border: 1px solid #363a45 !important;
+  color: #eaecef !important;
+}
+
+.form-control:focus {
+  background: #2b3139 !important;
+  border-color: #f7a600 !important;
+  box-shadow: 0 0 0 0.2rem rgba(240, 185, 11, 0.25) !important;
+  color: #eaecef !important;
+}
+
+.dark .form-control:focus {
+  background: #2b3139 !important;
+  border-color: #f7a600 !important;
+  box-shadow: 0 0 0 0.2rem rgba(240, 185, 11, 0.25) !important;
+  color: #eaecef !important;
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+  background: #2b3139 !important;
+  border: 1px solid #363a45 !important;
+  border-radius: 2px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.dark .dropdown-menu {
+  background: #2b3139 !important;
+  border: 1px solid #363a45 !important;
+}
+
+.dropdown-item {
+  color: #eaecef !important;
+  font-size: 12px !important;
+  padding: 6px 12px !important;
+}
+
+.dark .dropdown-item {
+  color: #eaecef !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background: #363a45 !important;
+  color: #fff !important;
+}
+
+.dark .dropdown-item:hover,
+.dark .dropdown-item:focus {
+  background: #363a45 !important;
+  color: #fff !important;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background: #f7a600 !important;
+  color: #000 !important;
+}
+
+.dark .dropdown-item.active,
+.dark .dropdown-item:active {
+  background: #f7a600 !important;
+  color: #000 !important;
+}
+
+/* Tab styling */
+.nav-tabs {
+  border-bottom: 1px solid #000000 !important;
+  background: transparent !important;
+}
+
+.dark .nav-tabs {
+  border-bottom: 1px solid #000000 !important;
+}
+
+.nav-tabs .nav-link {
+  color: #adb1b8 !important;
+  border: none !important;
+  background: transparent !important;
+  font-size: 12px !important;
+  padding: 8px 16px !important;
+}
+
+.dark .nav-tabs .nav-link {
+  color: #adb1b8 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.nav-tabs .nav-link.active {
+  color: #eaecef !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid #f7a600 !important;
+}
+
+.dark .nav-tabs .nav-link.active {
+  color: #eaecef !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid #f7a600 !important;
+}
+
+.nav-tabs .nav-link:hover {
+  color: #eaecef !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.dark .nav-tabs .nav-link:hover {
+  color: #eaecef !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Modal styling */
+.modal-content {
+  background: rgb(16, 16, 20) !important;
+  border: 1px solid #2b3139 !important;
+  border-radius: 4px !important;
+}
+
+.dark .modal-content {
+  background: rgb(16, 16, 20) !important;
+  border: 1px solid #2b3139 !important;
+}
+
+.modal-header {
+  background: rgb(16, 16, 20) !important;
+  border-bottom: 1px solid #2b3139 !important;
+  color: #eaecef !important;
+}
+
+.dark .modal-header {
+  background: rgb(16, 16, 20) !important;
+  border-bottom: 1px solid #2b3139 !important;
+  color: #eaecef !important;
+}
+
+.modal-body {
+  background: rgb(16, 16, 20) !important;
+  color: #eaecef !important;
+}
+
+.dark .modal-body {
+  background: rgb(16, 16, 20) !important;
+  color: #eaecef !important;
+}
+
+.modal-footer {
+  background: rgb(16, 16, 20) !important;
+  border-top: 1px solid #2b3139 !important;
+}
+
+.dark .modal-footer {
+  background: rgb(16, 16, 20) !important;
+  border-top: 1px solid #2b3139 !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: #2b3139;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #474d57;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a6169;
+}
+
+/* Text color overrides */
+.text-muted {
+  color: #adb1b8 !important;
+}
+
+.dark .text-muted {
+  color: #adb1b8 !important;
+}
+
+/* Ensure all components use Bybit colors */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #474d57 #2b3139;
+}
+
+/* Additional section borders for Bybit layout */
+.dark .price-header-section,
+.dark .chart-section,
+.dark .orderbook-section,
+.dark .trade-panel-section,
+.dark .history-section,
+.dark .margin-section {
+  border-color: #000000 !important;
+}
+
+/* Component-specific border overrides */
+.dark .market-trade,
+.dark .order-book,
+.dark .price-header,
+.dark .history-order,
+.dark .margin-ratio {
+  border: 1px solid #000000 !important;
+}
+
+/* Ensure TradingView chart container has proper borders */
+.dark .chart-container,
+.dark .tradingview-widget-container {
+  border: 1px solid #000000 !important;
+}
+
+/* Make sure all panels are properly separated */
+.dark #charts-container {
+  border-bottom: 1px solid #000000 !important;
+}
+
+/* Override any existing border colors to use black */
+.dark {
+  --border-color: #000000;
+}
