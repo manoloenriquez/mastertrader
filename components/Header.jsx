@@ -90,7 +90,7 @@ export default function Header() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="light-bb font-weight-normal">
-        <Navbar expand="lg">
+        <Navbar expand="lg" style={{ background: "#17181e !important" }}>
           <Link href="/" legacyBehavior>
             <a className="p-2 pr-0 mx-0">
               <img
@@ -105,7 +105,19 @@ export default function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="navbar-nav mr-auto">
-              <NavDropdown title="Buy Crypto">
+              <NavDropdown
+                title={
+                  <span
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      color: "#eaecef",
+                    }}
+                  >
+                    Buy Crypto
+                  </span>
+                }
+              >
                 <Link href="/settings" legacyBehavior>
                   <a className="dropdown-item">Settings</a>
                 </Link>
@@ -113,96 +125,109 @@ export default function Header() {
                   Toggle Theme
                 </button>
               </NavDropdown>
-              <NavDropdown title="Markets" />
-              <NavDropdown title="Trading Bots" />
-              <NavDropdown title="Tools" />
-              <NavDropdown title="Finance" />
-              <NavDropdown title="Derivatives Info" />
-              <NavDropdown title="More" />
+              <NavDropdown
+                title={
+                  <span
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      color: "#eaecef",
+                    }}
+                  >
+                    Markets
+                  </span>
+                }
+              />
+              <NavDropdown
+                title={
+                  <span
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      color: "#f7a600",
+                      borderBottom: "2px solid #f7a600",
+                      paddingBottom: "4px",
+                    }}
+                  >
+                    Trade
+                  </span>
+                }
+              />
+              <NavDropdown
+                title={
+                  <span
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      color: "#eaecef",
+                    }}
+                  >
+                    Tools
+                  </span>
+                }
+              />
+              <NavDropdown
+                title={
+                  <span
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      color: "#eaecef",
+                    }}
+                  >
+                    Finance
+                  </span>
+                }
+              />
+              <NavDropdown
+                title={
+                  <span
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      color: "#eaecef",
+                    }}
+                  >
+                    Derivatives Info
+                  </span>
+                }
+              />
+              <NavDropdown
+                title={
+                  <span
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      color: "#eaecef",
+                    }}
+                  >
+                    More
+                  </span>
+                }
+              />
+              <img
+                src="/Screenshot 2025-09-04 at 2.22.43 AM.png"
+                alt="Navbar right side icons"
+                style={{
+                  height: "32px",
+                  width: "auto",
+                  cursor: "pointer",
+                  objectFit: "contain",
+                }}
+              />
             </Nav>
             <Nav className="navbar-nav ml-auto">
-              <NavDropdown title="Assets" />
-              <NavDropdown title="Orders" />
-
-              <Link href="/" legacyBehavior>
-                <a className="nav-link">
-                  <svg
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    width="24"
-                    height="24"
-                  >
-                    <defs>
-                      <symbol viewBox="0 0 24 24" id="account-f">
-                        <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                          d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3ZM14.5 9.5C14.5 10.8807 13.3807 12 12 12C10.6193 12 9.5 10.8807 9.5 9.5C9.5 8.11929 10.6193 7 12 7C13.3807 7 14.5 8.11929 14.5 9.5ZM12 13.9961H8.66662C7.97115 13.9961 7.37518 14.7661 7.12537 15.5161C7.73252 16.4634 9.45831 17.9803 12 18.0023C14.5416 18.0243 16.3061 16.3616 16.8745 15.5161C16.6247 14.7661 16.0288 13.9961 15.3333 13.9961H12Z"
-                          fill="currentColor"
-                        ></path>
-                      </symbol>
-                    </defs>
-                    <g fill="#EAECEF">
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3ZM14.5 9.5C14.5 10.8807 13.3807 12 12 12C10.6193 12 9.5 10.8807 9.5 9.5C9.5 8.11929 10.6193 7 12 7C13.3807 7 14.5 8.11929 14.5 9.5ZM12 13.9961H8.66662C7.97115 13.9961 7.37518 14.7661 7.12537 15.5161C7.73252 16.4634 9.45831 17.9803 12 18.0023C14.5416 18.0243 16.3061 16.3616 16.8745 15.5161C16.6247 14.7661 16.0288 13.9961 15.3333 13.9961H12Z"
-                        fill="currentColor"
-                      ></path>
-                    </g>
-                  </svg>
-                </a>
-              </Link>
-
-              <Link href="/" legacyBehavior>
-                <a className="nav-link">Buy Crypto</a>
-              </Link>
-
-              <Link href="/" legacyBehavior>
-                <a className="nav-link">Markets</a>
-              </Link>
-
-              <Link href="/" legacyBehavior>
-                <a className="nav-link">
-                  <svg
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    class="css-3kwgah"
-                    width="24"
-                    height="24"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M6.5 3H19v18H6.5v-2.5H4V16h2.5v-2.75H4v-2.5h2.5V8H4V5.5h2.5V3zm6.25 4.75c-.69 0-1.25.56-1.25 1.25v.5H9V9a3.75 3.75 0 116.402 2.652L14 13.053V14.5h-2.5v-2.482l2.134-2.134a1.25 1.25 0 00-.884-2.134zM11.5 19v-2.5H14V19h-2.5z"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
-                </a>
-              </Link>
-
-              <Link href="/" legacyBehavior>
-                <a className="nav-link">
-                  <svg
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    width="24"
-                    height="24"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M13.8 3h-3.6v2.027c-.66.17-1.285.431-1.858.77L6.91 4.363 4.363 6.91l1.434 1.433a7.157 7.157 0 00-.77 1.858H3v3.6h2.027c.17.66.431 1.285.77 1.858L4.363 17.09l2.546 2.546 1.433-1.434c.573.339 1.197.6 1.858.77V21h3.6v-2.027a7.157 7.157 0 001.858-.77l1.433 1.434 2.546-2.546-1.434-1.434a7.16 7.16 0 00.77-1.857H21v-3.6h-2.027a7.158 7.158 0 00-.77-1.858l1.434-1.433-2.546-2.546-1.434 1.434a7.156 7.156 0 00-1.857-.77V3zm-4.5 9a2.7 2.7 0 115.4 0 2.7 2.7 0 01-5.4 0z"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
-                </a>
-              </Link>
+              {/* Navbar right side icons - Using exact image from screenshot */}
+              <img
+                src="/Screenshot 2025-09-04 at 2.17.05 AM.png"
+                alt="Navbar right side icons"
+                style={{
+                  height: "28px",
+                  width: "auto",
+                  cursor: "pointer",
+                  objectFit: "contain",
+                }}
+              />
             </Nav>
           </Navbar.Collapse>
         </Navbar>

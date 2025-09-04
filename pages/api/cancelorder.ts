@@ -20,13 +20,16 @@ export default async function handler(
 
   const supabase = createServerSupabaseClient({ req, res });
   console.log(req.body);
-  const data = req.body.data as CancelOrder;
+  const { id } = req.body;
+
+  if (!id) {
+    res.status(400).json({ error: "Order ID is required" });
+    return;
+  }
 
   try {
-    const response = await supabase
-      .from("orders")
-      .update({ status: "cancelled" })
-      .eq("id", data.id);
+    // Delete the order instead of updating status
+    const response = await supabase.from("orders").delete().eq("id", id);
 
     if (response.error) {
       throw response.error;

@@ -29,6 +29,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^1.5.2",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
     "react-slick": "^0.28.1",
     "react-slider": "^2.0.4",
     "react-tradingview-embed": "^2.2.6",

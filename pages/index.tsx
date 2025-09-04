@@ -63,7 +63,10 @@ export default function Home() {
             </div>
 
             {/* Second Row: Chart and Order Book */}
-            <div className="d-flex flex-grow-1" style={{ overflow: "hidden" }}>
+            <div
+              className="d-flex "
+              style={{ overflow: "hidden", height: 600 }}
+            >
               <div className="flex-grow-1 d-flex chart-section">
                 {theme.data.theme === "light" ? (
                   <DynamicTVS />
@@ -86,8 +89,8 @@ export default function Home() {
 
             {/* Third Row: History/Positions Table */}
             <div
-              className="history-section"
-              style={{ overflow: "auto", maxHeight: "30vh" }}
+              className="history-section flex-grow-1"
+              style={{ overflow: "auto" }}
             >
               <HistoryOrder />
             </div>

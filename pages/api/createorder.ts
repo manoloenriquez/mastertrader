@@ -14,7 +14,7 @@ export default async function handler(
   const supabase = createServerSupabaseClient<Database>({ req, res });
   console.log(req.body);
   const data = req.body.data as CreateOrder;
-  const symbol = req.body.symbol ?? "BTCUSDT"
+  const symbol = req.body.symbol ?? "BTCUSDT";
 
   if (!data.entry) {
     const symbolData = await fetch(
@@ -26,7 +26,15 @@ export default async function handler(
   }
 
   try {
-    const response = await supabase.from("orders").insert(data).select();
+    // Ensure the order has pending status
+    const orderData = {
+      ...data,
+      status: "pending",
+      realized_pnl: 0,
+      position_id: null,
+    };
+
+    const response = await supabase.from("orders").insert(orderData).select();
 
     if (response.error) {
       throw response.error;

@@ -24,7 +24,7 @@ export interface CreateOrder {
 export interface Order extends CreateOrder {
   id: string;
   created_at: Date;
-  status: "pending" | "filled" | "cancelled";
+  status: "pending" | "filled" | "cancelled" | null;
   realized_pnl: number;
   position_id: string | null;
 }

@@ -3,6 +3,8 @@ import React, { useEffect, useState, useMemo } from "react";
 import { AdvancedChart } from "react-tradingview-embed";
 import styled from "styled-components";
 import { useMarket } from "../context/MarketContext";
+import { CiCamera } from "react-icons/ci";
+import { RiFullscreenLine } from "react-icons/ri";
 
 export default function TradingChartDark() {
   const router = useRouter();
@@ -107,7 +109,18 @@ export default function TradingChartDark() {
               </svg>
             </div>
             <div className="control-btn">
-              <span>0%</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                class="ktv_candles_icon_svg__icon"
+                viewBox="0 0 1024 1024"
+              >
+                <path
+                  fill="currentColor"
+                  d="M362.667 128a42.667 42.667 0 0 0-85.334 0v87.083a128 128 0 0 0-106.666 126.25v341.334a128 128 0 0 0 106.666 126.25V896a42.667 42.667 0 1 0 85.334 0v-87.083a128 128 0 0 0 106.666-126.25V341.333a128 128 0 0 0-106.666-126.25V128zm-21.334 597.333h-42.666A42.667 42.667 0 0 1 256 682.667V341.333a42.667 42.667 0 0 1 42.667-42.666h42.666A42.667 42.667 0 0 1 384 341.333v341.334a42.667 42.667 0 0 1-42.667 42.666zm405.334-512a42.667 42.667 0 1 0-85.334 0v87.083a128 128 0 0 0-106.666 126.25V640a128 128 0 0 0 106.666 126.25v87.083a42.667 42.667 0 1 0 85.334 0v-87.082A128 128 0 0 0 853.333 640V426.667a128 128 0 0 0-106.666-126.251v-87.083zm-21.334 469.334h-42.666A42.667 42.667 0 0 1 640 640V426.667A42.667 42.667 0 0 1 682.667 384h42.666A42.667 42.667 0 0 1 768 426.667V640a42.667 42.667 0 0 1-42.667 42.667z"
+                ></path>
+              </svg>
               <svg className="dropdown-arrow" viewBox="0 0 24 24">
                 <path d="M16 9v1.2L12 15l-4-4.8V9h8z" fill="currentColor" />
               </svg>
@@ -115,31 +128,132 @@ export default function TradingChartDark() {
           </div>
         </div>
 
-        <div className="controls-right">
-          <div className="tradingview-alert-btn">
-            <svg className="tv-icon" viewBox="0 0 24 24">
-              <path d="M12 2l10 18H2L12 2z" fill="#0ECB81" />
+        <div className="controls-right flex-align-center no-shrink">
+          {/* TradingView Alert Button */}
+          <div
+            className="t-s-b__wh-swt-btn-wrap"
+            style={{
+              border: 0,
+              boxSizing: "border-box",
+              font: "inherit",
+              verticalAlign: "baseline",
+              margin: 0,
+              padding: "0 var(--size-6)",
+              color: "var(--bds-gray-t2)",
+              cursor: "pointer",
+              pointerEvents: "initial",
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="none"
+            >
+              <path
+                d="M0 2C0 0.895431 0.895431 0 2 0H16V16H2C0.895431 16 0 15.1046 0 14V2Z"
+                fill="#2862FF"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M4.7798 4C4.94589 4 5.09925 4.0537 5.22375 4.14536C4.82087 4.43604 4.46538 4.78832 4.1711 5.18841C4.08196 5.0649 4.0298 4.91347 4.0298 4.75C4.0298 4.33579 4.36558 4 4.7798 4ZM4.7798 3C5.32214 3 5.8071 3.24728 6.12733 3.63341C6.70193 3.38665 7.33501 3.25 8 3.25C8.67334 3.25 9.31395 3.3901 9.89428 3.64275C10.2144 3.25128 10.7028 3 11.2495 3C12.216 3 12.9995 3.7835 12.9995 4.75C12.9995 5.29678 12.7485 5.78465 12.3569 6.10502C12.6098 6.68554 12.75 7.32639 12.75 8C12.75 9.13157 12.3543 10.1707 11.6938 10.9867L12.8536 12.1464C13.0488 12.3417 13.0488 12.6583 12.8536 12.8536C12.6583 13.0488 12.3417 13.0488 12.1464 12.8536L10.9867 11.6938C10.1707 12.3543 9.13157 12.75 8 12.75C6.86843 12.75 5.82927 12.3543 5.01334 11.6938L3.85355 12.8536C3.65829 13.0488 3.34171 13.0488 3.14645 12.8536C2.95118 12.6583 2.95118 12.3417 3.14645 12.1464L4.30624 10.9867C3.64568 10.1707 3.25 9.13157 3.25 8C3.25 7.31948 3.39311 6.67238 3.65087 6.08716C3.27168 5.76667 3.0298 5.28672 3.0298 4.75C3.0298 3.7835 3.8133 3 4.7798 3ZM11.75 8C11.75 9.00647 11.3535 9.92034 10.7082 10.5939C10.6866 10.6095 10.6659 10.627 10.6464 10.6464C10.627 10.6659 10.6095 10.6866 10.5939 10.7082C9.92033 11.3535 9.00647 11.75 8 11.75C6.99353 11.75 6.07966 11.3535 5.40609 10.7082C5.39052 10.6866 5.373 10.6659 5.35355 10.6464C5.3341 10.627 5.31345 10.6095 5.29183 10.5939C4.6465 9.92034 4.25 9.00647 4.25 8C4.25 5.92893 5.92893 4.25 8 4.25C10.0711 4.25 11.75 5.92893 11.75 8ZM10.7912 4.15619C10.9182 4.05794 11.077 4 11.2495 4C11.6637 4 11.9995 4.33579 11.9995 4.75C11.9995 4.92232 11.9415 5.08126 11.8434 5.20822C11.5499 4.80492 11.1945 4.44958 10.7912 4.15619ZM8.5 5.75C8.5 5.47386 8.27614 5.25 8 5.25C7.72386 5.25 7.5 5.47386 7.5 5.75V8C7.5 8.18939 7.607 8.36252 7.77639 8.44721L9.77639 9.44721C10.0234 9.57071 10.3237 9.4706 10.4472 9.22361C10.5707 8.97662 10.4706 8.67628 10.2236 8.55279L8.5 7.69098V5.75Z"
+                fill="#fff"
+              />
             </svg>
-            <span>TradingView Alert</span>
+            <div
+              className="t-s-b__wh-swt-content"
+              style={{
+                color: "var(--bds-gray-t2)",
+                fontSize: "12px",
+                fontWeight: 400,
+                whiteSpace: "nowrap",
+                backgroundColor: "rgba(192,210,231,.12)",
+                padding: "0 6px",
+                borderRadius: "2px",
+              }}
+            >
+              TradingView Alert
+            </div>
           </div>
-          <svg className="control-icon" viewBox="0 0 24 24">
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 6l-7 7-3-3 1.41-1.41L10 12.17l5.59-5.59L17 8z"
-              fill="currentColor"
-            />
-          </svg>
-          <svg className="control-icon" viewBox="0 0 24 24">
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm0-4h-2V7h2v8z"
-              fill="currentColor"
-            />
-          </svg>
-          <svg className="control-icon" viewBox="0 0 24 24">
-            <path
-              d="M19 12h-2v3h-3v2h5v-5zM7 9h3V7H5v5h2V9zm14-6H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16.01H3V4.99h18v14.02z"
-              fill="currentColor"
-            />
-          </svg>
+
+          {/* Screenshot Icon */}
+          <div
+            className="tv-self-bar--icon tv-self-bar--m-l-8 cursor-pointer"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: "4px",
+              cursor: "pointer",
+              transition: "background-color 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor =
+                "rgba(255, 255, 255, 0.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+            }}
+          >
+            <CiCamera size={16} />
+          </div>
+
+          {/* Settings Icon */}
+          <div
+            className="cursor-pointer tv-self-bar--icon tv-self-bar--m-l-8"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: "4px",
+              cursor: "pointer",
+              transition: "background-color 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor =
+                "rgba(255, 255, 255, 0.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M16.864 4.525a1.002 1.002 0 0 0-.868-.505H8.004c-.358 0-.69.192-.868.505l-3.996 6.97c-.18.313-.18.698 0 1.01l3.996 6.97c.179.313.51.505.868.505h7.992c.358 0 .69-.192.868-.505l3.996-6.97c.18-.313.18-.698 0-1.01l-3.996-6.97ZM5.4 3.515A3.005 3.005 0 0 1 8.004 2h7.992c1.075 0 2.068.577 2.605 1.515l3.996 6.97a3.048 3.048 0 0 1 0 3.03l-3.996 6.97A3.005 3.005 0 0 1 15.996 22H8.004A3.005 3.005 0 0 1 5.4 20.485l-3.996-6.97a3.048 3.048 0 0 1 0-3.03l3.996-6.97Zm4.576 8.465c0-1.115.898-2.02 2.005-2.02 1.108 0 2.006.905 2.006 2.02 0 1.116-.898 2.02-2.006 2.02a2.013 2.013 0 0 1-2.005-2.02Zm2.005-4.04c-2.215 0-4.011 1.809-4.011 4.04s1.796 4.04 4.011 4.04 4.011-1.809 4.011-4.04-1.796-4.04-4.01-4.04Z"
+                fill="#71757a"
+              ></path>
+            </svg>
+          </div>
+
+          {/* Fullscreen Icon */}
+          <div
+            className="tv-self-bar--icon tv-self-bar--m-l-8 cursor-pointer"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: "4px",
+              cursor: "pointer",
+              transition: "background-color 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor =
+                "rgba(255, 255, 255, 0.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+            }}
+          >
+            <RiFullscreenLine size={16} />
+          </div>
         </div>
       </div>
 
@@ -207,7 +321,7 @@ export default function TradingChartDark() {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 6px 12px 4px;
+          padding: 0px 12px;
         }
 
         .main-tabs {
@@ -352,34 +466,98 @@ export default function TradingChartDark() {
           gap: 8px;
         }
 
-        .tradingview-alert-btn {
+        /* Bybit CSS Variables */
+        :root {
+          --size-2: 2px;
+          --size-12: 12px;
+          --bds-trans-hover: rgba(192, 210, 231, 0.12);
+        }
+
+        .flex-align-center {
           display: flex;
           align-items: center;
-          gap: 4px;
-          background: rgba(14, 203, 129, 0.08);
-          color: #0ecb81;
-          padding: 3px 8px;
-          border-radius: 3px;
-          font-size: 10px;
+        }
+
+        .no-shrink {
+          flex-shrink: 0;
+        }
+
+        :root {
+          --size-12: 12px;
+          --size-2: 2px;
+          --size-6: 6px;
+          --bds-trans-hover: rgba(192, 210, 231, 0.12);
+          --bds-gray-t2: #adb1b8;
+        }
+
+        .t-s-b__wh-swt-btn-wrap {
+          display: flex;
+          align-items: center;
+          font-size: var(--size-12);
+          background-color: var(--bds-trans-hover);
+          border: none;
+          border-radius: var(--size-2);
           cursor: pointer;
-          font-weight: 400;
+          box-sizing: border-box;
+          font: inherit;
+          vertical-align: baseline;
+          margin: 0;
+          padding: 0 var(--size-6);
+          color: var(--bds-gray-t2);
+          pointer-events: initial;
         }
 
-        .tv-icon {
-          width: 10px;
-          height: 10px;
-          fill: currentColor;
-        }
-
-        .control-icon {
+        .tv-self-bar__webhook-switch-img {
           width: 14px;
           height: 14px;
-          fill: #adb1b8;
+        }
+
+        .t-s-b__wh-swt-content {
+          color: var(--bds-gray-t2);
+          font-size: 12px;
+          font-weight: 400;
+          white-space: nowrap;
+        }
+
+        .tv-self-bar--icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.15s ease;
+        }
+
+        .tv-self-bar--icon:hover {
+          background-color: rgba(173, 177, 184, 0.1);
+        }
+
+        .cursor-pointer {
           cursor: pointer;
         }
 
-        .control-icon:hover {
-          fill: #b7bdc6;
+        .tv-icon-iconfont {
+          color: #adb1b8;
+          font-size: 14px;
+        }
+
+        .tv-icon-iconfont:hover {
+          color: #b7bdc6;
+        }
+
+        /* Icon font classes for Bybit icons */
+        .iconicon_screenshot:before {
+          content: "📷";
+        }
+
+        .iconicon_setting:before {
+          content: "⚙️";
+        }
+
+        .iconicon_fullscreen_on:before {
+          content: "⛶";
         }
 
         .chart-content {

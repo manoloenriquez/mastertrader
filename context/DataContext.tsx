@@ -14,6 +14,7 @@ const Context = createContext<{
   avblBalance: number;
   positions: Position[];
   orders: Order[];
+  fetchOrders: () => void;
 } | null>(null);
 
 interface User {
@@ -67,14 +68,19 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       .from("orders")
       .select("*")
       .eq("user_id", user.id)
-      .eq("status", "pending")
       .returns<Order[]>()
       .then((payload) => {
         if (payload.error) {
+          console.error("Error fetching orders:", payload.error);
           return;
         }
 
-        setOrders(payload.data);
+        // Filter for pending limit orders only (exclude market orders)
+        const pendingOrders = payload.data.filter(
+          (order) =>
+            (order.status === "pending" || !order.status) && !order.is_market
+        );
+        setOrders(pendingOrders);
       });
   };
 
@@ -112,7 +118,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     fetchPositions();
 
     const userSubscription = supabase
-      .channel("any")
+      .channel("user-changes")
       .on<{ id: string; username: string; balance: number }>(
         "postgres_changes",
         { event: "UPDATE", schema: "public", table: "users" },
@@ -124,15 +130,34 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       .subscribe();
 
     const orderSubscription = supabase
-      .channel("any")
+      .channel("order-changes")
       .on<Order>(
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "orders" },
         (payload) => {
-          console.log("Change received!", payload);
+          console.log("🔥 Order INSERT received!", payload);
+          console.log("User ID check:", payload.new.user_id, "vs", user.id);
           if (payload.new.user_id !== user.id) return;
 
-          setOrders((prevOrders) => [...prevOrders, payload.new]);
+          // Only add if it's a pending limit order (same filter as fetchOrders)
+          const newOrder = payload.new;
+          console.log("New order filter check:", {
+            status: newOrder.status,
+            is_market: newOrder.is_market,
+            shouldAdd:
+              (newOrder.status === "pending" || !newOrder.status) &&
+              !newOrder.is_market,
+          });
+
+          if (
+            (newOrder.status === "pending" || !newOrder.status) &&
+            !newOrder.is_market
+          ) {
+            console.log("✅ Adding new order to state");
+            setOrders((prevOrders) => [...prevOrders, newOrder]);
+          } else {
+            console.log("❌ Not adding order - doesn't match filter");
+          }
         }
       )
       .on<Order>(
@@ -150,20 +175,33 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
         "postgres_changes",
         { event: "UPDATE", schema: "public", table: "orders" },
         (payload) => {
-          console.log("Update received!", payload);
+          console.log("Order UPDATE received!", payload);
           if (payload.new.user_id !== user.id) return;
 
-          setOrders((prevOrders) =>
-            prevOrders.map((order) =>
-              order.id === payload.new.id ? payload.new : order
-            )
-          );
+          const updatedOrder = payload.new;
+
+          // Check if updated order should still be in the list (pending limit order)
+          const shouldBeInList =
+            (updatedOrder.status === "pending" || !updatedOrder.status) &&
+            !updatedOrder.is_market;
+
+          setOrders((prevOrders) => {
+            if (shouldBeInList) {
+              // Update the order if it should be in the list
+              return prevOrders.map((order) =>
+                order.id === updatedOrder.id ? updatedOrder : order
+              );
+            } else {
+              // Remove the order if it shouldn't be in the list (e.g., cancelled or filled)
+              return prevOrders.filter((order) => order.id !== updatedOrder.id);
+            }
+          });
         }
       )
       .subscribe();
 
     const positionSubscription = supabase
-      .channel("any")
+      .channel("position-changes")
       .on<Position>(
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "positions" },
@@ -208,7 +246,9 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   }, [user]);
 
   return (
-    <Context.Provider value={{ balance, avblBalance, positions, orders }}>
+    <Context.Provider
+      value={{ balance, avblBalance, positions, orders, fetchOrders }}
+    >
       {children}
     </Context.Provider>
   );

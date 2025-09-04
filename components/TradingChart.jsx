@@ -114,31 +114,122 @@ export default function TradingChart() {
           </div>
         </div>
 
-        <div className="controls-right">
-          <div className="tradingview-alert-btn">
-            <svg className="tv-icon" viewBox="0 0 24 24">
-              <path d="M12 2l10 18H2L12 2z" fill="#0ECB81" />
+        <div className="controls-right flex-align-center no-shrink">
+          {/* TradingView Alert Button */}
+          <div
+            className="t-s-b__wh-swt-btn-wrap"
+            style={{
+              border: 0,
+              boxSizing: "border-box",
+              font: "inherit",
+              verticalAlign: "baseline",
+              margin: 0,
+              padding: "0 var(--size-6)",
+              color: "var(--bds-gray-t2)",
+              cursor: "pointer",
+              pointerEvents: "initial",
+            }}
+          >
+            <svg
+              width="14"
+              height="14"
+              className="tv-self-bar__webhook-switch-img"
+              viewBox="0 0 24 24"
+              fill="#0ecb81"
+              style={{
+                width: "14px",
+                height: "14px",
+              }}
+            >
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
-            <span>TradingView Alert</span>
+            <div
+              className="t-s-b__wh-swt-content"
+              style={{
+                color: "var(--bds-gray-t2)",
+                fontSize: "12px",
+                fontWeight: 400,
+                whiteSpace: "nowrap",
+              }}
+            >
+              TradingView Alert
+            </div>
           </div>
-          <svg className="control-icon" viewBox="0 0 24 24">
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 6l-7 7-3-3 1.41-1.41L10 12.17l5.59-5.59L17 8z"
-              fill="currentColor"
-            />
-          </svg>
-          <svg className="control-icon" viewBox="0 0 24 24">
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm0-4h-2V7h2v8z"
-              fill="currentColor"
-            />
-          </svg>
-          <svg className="control-icon" viewBox="0 0 24 24">
-            <path
-              d="M19 12h-2v3h-3v2h5v-5zM7 9h3V7H5v5h2V9zm14-6H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16.01H3V4.99h18v14.02z"
-              fill="currentColor"
-            />
-          </svg>
+
+          {/* Screenshot Icon */}
+          <div
+            className="tv-self-bar--icon tv-self-bar--m-l-8 cursor-pointer"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "28px",
+              height: "28px",
+              borderRadius: "4px",
+              cursor: "pointer",
+              transition: "background-color 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#71757a">
+              <path d="M4 4h16v12H4V4zm2 2v8h12V6H6zm11 11v2h2v2H3v-2h2v-2h12zM7 8h10v6H7V8z" />
+            </svg>
+          </div>
+
+          {/* Settings Icon */}
+          <div
+            className="cursor-pointer tv-self-bar--icon tv-self-bar--m-l-8"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "28px",
+              height: "28px",
+              borderRadius: "4px",
+              cursor: "pointer",
+              transition: "background-color 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#71757a">
+              <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+            </svg>
+          </div>
+
+          {/* Fullscreen Icon */}
+          <div
+            className="tv-self-bar--icon tv-self-bar--m-l-8 cursor-pointer"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "28px",
+              height: "28px",
+              borderRadius: "4px",
+              cursor: "pointer",
+              transition: "background-color 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#71757a">
+              <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
+            </svg>
+          </div>
         </div>
       </div>
 
@@ -480,34 +571,102 @@ export default function TradingChart() {
           gap: 12px;
         }
 
-        .tradingview-alert-btn {
+        /* Bybit CSS Variables */
+        :root {
+          --size-2: 2px;
+          --size-12: 12px;
+          --bds-trans-hover: rgba(192, 210, 231, 0.12);
+        }
+
+        .flex-align-center {
           display: flex;
           align-items: center;
-          gap: 6px;
-          background: rgba(14, 203, 129, 0.1);
-          color: #0ecb81;
-          padding: 6px 10px;
-          border-radius: 4px;
-          font-size: 12px;
-          cursor: pointer;
-          font-weight: 500;
         }
 
-        .tv-icon {
+        .no-shrink {
+          flex-shrink: 0;
+        }
+
+        :root {
+          --size-12: 12px;
+          --size-2: 2px;
+          --size-6: 6px;
+          --bds-trans-hover: rgba(56, 68, 82, 0.06);
+          --bds-gray-t2: #81858c;
+        }
+
+        .t-s-b__wh-swt-btn-wrap {
+          display: flex;
+          align-items: center;
+          font-size: var(--size-12);
+          background-color: var(--bds-trans-hover);
+          border: none;
+          border-radius: var(--size-2);
+          cursor: pointer;
+          box-sizing: border-box;
+          font: inherit;
+          vertical-align: baseline;
+          margin: 0;
+          padding: 0 var(--size-6);
+          color: var(--bds-gray-t2);
+          pointer-events: initial;
+        }
+
+        .tv-self-bar__webhook-switch-img {
           width: 14px;
           height: 14px;
-          fill: currentColor;
         }
 
-        .control-icon {
-          width: 16px;
-          height: 16px;
-          fill: #adb1b8;
+        .t-s-b__wh-swt-content {
+          color: var(--bds-gray-t2);
+          font-size: 12px;
+          font-weight: 400;
+          white-space: nowrap;
+        }
+
+        .tv-self-bar--icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.15s ease;
+        }
+
+        .tv-self-bar--icon:hover {
+          background-color: rgba(173, 177, 184, 0.1);
+        }
+
+        .tv-self-bar--m-l-8 {
+          margin-left: 8px;
+        }
+
+        .cursor-pointer {
           cursor: pointer;
         }
 
-        .control-icon:hover {
-          fill: #eaecef;
+        .tv-icon-iconfont {
+          color: #adb1b8;
+          font-size: 14px;
+        }
+
+        .tv-icon-iconfont:hover {
+          color: #b7bdc6;
+        }
+
+        /* Icon font classes for Bybit icons */
+        .iconicon_screenshot:before {
+          content: "📷";
+        }
+
+        .iconicon_setting:before {
+          content: "⚙️";
+        }
+
+        .iconicon_fullscreen_on:before {
+          content: "⛶";
         }
 
         .chart-content {

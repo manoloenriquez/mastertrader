@@ -18,6 +18,8 @@ export interface SymbolTicker {
   fundingTime?: number;
   changePercentage?: number;
   prevPrice?: string;
+  volume24h?: string;
+  openInterest?: string;
 }
 
 export interface MarketTicker {
